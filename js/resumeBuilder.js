@@ -1,6 +1,6 @@
 /*Skills info */
 var skills =
-["HTML5", "CSS3", "javaScript", "JQuery", "PHP"];
+["HTML5", "CSS3", "javaScript", "JQuery", "PHP", "Node.js", "JQuery mobile", "Responsive Design", "Web Development", "Wordpress"];
 
 /* Bio info */
 
@@ -14,7 +14,7 @@ var bio ={
 		"location" : "Bogota, Colombia"
 	},
 	"bioPic" : "images/me.jpg",
-	"welcomeMessage" : "Hello, This is my interactive CV, hope you find useful information here",
+	"welcomeMessage" : "Hello, This is my interactive CV, Feel free to contact me anytime!",
 	"skills" : skills
 };
 
