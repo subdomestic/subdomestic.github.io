@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    
+}
+.ScoreStyle{
+	font-family: "Gorditas", cursive;
+	font-size: 3em;
+	color: #4f67d3;
+    text-shadow: 3px 3px 8px #f3dc50, -3px -3px 8px #f3dc50;
+}
