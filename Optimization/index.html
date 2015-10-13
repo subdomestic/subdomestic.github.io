@@ -13,20 +13,6 @@
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="css/print.css" rel="stylesheet" media="print">
 <script async>
-    var cssId = 'myCss';  // you could encode the css path itself to generate id..
-if (!document.getElementById(cssId))
-{
-    var head  = document.getElementsByTagName('head')[0];
-    var link  = document.createElement('link');
-    link.id   = cssId;
-    link.rel  = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'css/style.css';
-    link.media = 'all';
-    head.appendChild(link);
-}
-
-    
       (function(w,g){w['GoogleAnalyticsObject']=g;
       w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
 
@@ -80,5 +66,16 @@ if (!document.getElementById(cssId))
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'css/style.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
   </body>
 </html>
