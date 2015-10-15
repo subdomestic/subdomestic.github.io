@@ -71,3 +71,10 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
 * <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
 * <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+
+###Enhancements made in thw website
+
+* PageSpeed were optimized
+* Images were optimized
+* Generated background avoid FSL and is much faster, cleaner and efficient.
+* Pizza size change with slider in a more efficient way. It is generated in less than 2ms.
