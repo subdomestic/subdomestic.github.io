@@ -462,8 +462,9 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas"); //Outside the loop only makes one DOM call
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
+  
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -496,9 +497,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   //var items = document.querySelectorAll('.mover');
-  var ScrollPosition = document.body.scrollTop/1250; // Read the scroll position outside the for loop
+  var ScrollPosition = document.body.scrollTop/1250; // Read the scroll position outside the loop
+  var phase; //declare the variable outside the loop si more efficient
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((ScrollPosition) + (i % 5));
+    phase = Math.sin((ScrollPosition) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -521,15 +523,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 
   //Use 35 pizzas in the background instead of 200. It is not neccesary to paint so many pizzas
+  var elem; //declare the variable outside the loop si more efficient
+  var movingPizzas = document.getElementById("movingPizzas1").appendChild(elem);; //Declare the variable outside the loop prevents calling the DOM several times
   for (var i = 0; i < 35; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
+    
   }
   updatePositions();
 });
