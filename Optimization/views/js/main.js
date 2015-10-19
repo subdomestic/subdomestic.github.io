@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //Use 35 pizzas in the background instead of 200. It is not neccesary to paint so many pizzas
   var elem;
   var movingPizzas = document.getElementById("movingPizzas1"); //declare the variables outside the loop is more efficient
-  var ScreenHeight = window.screen.height;
+  var ScreenHeight = window.screen.height/s;
   var BgPizzas = ScreenHeight*cols;
 
   for (var i = 0; i < BgPizzas; i++) {
