@@ -11,30 +11,21 @@ function loadData() {
     $wikiElem.text("");
     $nytElem.text("");
 
+    var streetStr = $('#street').val();
+    var cityStr = $('#city').val();
+    var address = streetStr + ', ' + cityStr;
+
+    $greeting.text('So, you want to live at ' + address + '?');
+
+
     // load streetview
+    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '';
+    $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
+
+    // load nytimes
+    
     // YOUR CODE GOES HERE!
-    var street = $("#street").val();
-    var city = $("#city").val();
-
-    $greeting.text('So, you want to live at '+ street + ', ' + city + '?');
-    $body.append('<img class="bgimg" src="https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + street + ', ' + city + '">');
-
-    //NYTimes AJAX Request
-    var URL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?[q=' + city + '&sort=newest&api-key=e0dc8045735f44290d7d0aef6cd0343c:1:73254831';
-    $.getJSON( URL, function( data ) {
-     var items = [];
-     /*$.each( data, function( key, val ) {
-       items.push( "<li id='" + key + "'>" + val + "</li>" );
-     });
- 
-      $( "<ul/>", {
-       "class": "my-new-list",
-       html: items.join( "" )
-     }).appendTo( "body" );*/
-    console.log(data);
-    });
-
 
     return false;
 };
