@@ -21,7 +21,7 @@ function loadData() {
     $body.append('<img class="bgimg" src="https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + street + ', ' + city + '">');
 
     //NYTimes AJAX Request
-    var URL = 'http://api.nytimes.com/svc/search/v2/articlesearch.response-format?[q=' + city + '&sort=newest&api-key=e0dc8045735f44290d7d0aef6cd0343c:1:73254831';
+    var URL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?[q=' + city + '&sort=newest&api-key=e0dc8045735f44290d7d0aef6cd0343c:1:73254831';
     $.getJSON( URL, function( data ) {
      var items = [];
      /*$.each( data, function( key, val ) {
