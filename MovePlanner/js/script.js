@@ -49,7 +49,17 @@ function loadData() {
 
     // load wikipedia data
 
-    // YOUR CODE GOES HERE!
+    $.ajax({
+    url: "https://en.wikipedia.org/w/api.php?action=query&titles=" + cityStr + "&format=jsonp",
+ 
+    // Tell jQuery we're expecting JSONP
+    dataType: "jsonp",
+
+    // Work with the response
+    success: function( response ) {
+        console.log( "wiki" + response ); // server response
+    }
+});
 
     return false;
 };
