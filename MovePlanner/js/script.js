@@ -27,6 +27,7 @@ function loadData() {
 
 
     // load nytimes
+<<<<<<< HEAD
     // obviously, replace all the "X"s with your own API key
     var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr + '&sort=newest&api-key=e0dc8045735f44290d7d0aef6cd0343c:1:73254831';
     $.getJSON(nytimesUrl, function(data){
@@ -60,6 +61,7 @@ function loadData() {
         console.log( "wiki" + response ); // server response
     }
 });
+
 
     return false;
 };
