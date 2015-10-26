@@ -50,14 +50,21 @@ function loadData() {
     // load wikipedia data
 
     $.ajax({
-    url: "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=jsonfm&titles=" + cityStr,
+    url: "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + cityStr + "&format=jsonfm&callback=wikiCallback",
  
     // Tell jQuery we're expecting JSONP
     dataType: "jsonp",
 
     // Work with the response
     success: function( response ) {
-        console.log( "wiki" + response ); // server response
+        var articleList = response[1];
+
+        for(var i=0; i < articleList.length; i++){
+            articleStr = articleList[1];
+            var url = 'http://en.wikipedia.org/wiki' + articleStr;
+            $wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
+        }
+        
     }
 });
 
