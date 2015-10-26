@@ -50,7 +50,7 @@ function loadData() {
     // load wikipedia data
 
     $.ajax({
-    url: "https://en.wikipedia.org/w/api.php?action=query&titles=" + cityStr + "&format=json",
+    url: "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=jsonfm&titles=" + cityStr,
  
     // Tell jQuery we're expecting JSONP
     dataType: "jsonp",
