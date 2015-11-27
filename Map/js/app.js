@@ -53,15 +53,19 @@ var MyViewModel = function() {
     var locationsList = ko.observableArray([]);
     filter = ko.observable("");
 
+     map = new google.maps.Map(document.getElementById("map-div"), {
+        center: new google.maps.LatLng(4.6063134, -74.0753201),
+         zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
     locations.forEach(function(Item){
         locationsList.push(new place(Item));
+        Item.marker = displayMarker(Item.latitude, Item.longitude);
     });
 
     console.log("mark" + locationsList());
-    ko.utils.arrayForEach(locationsList(), function(){
-        this.marker = displayMarker(this.latitude, this.longitude); 
-        console.log("m" + this.marker);
-    })
+
     filteredItems = ko.dependentObservable(function() {
 
         var filter = parent.filter().toLowerCase();
@@ -79,14 +83,18 @@ var MyViewModel = function() {
     filteredItems.subscribe(function(){
         console.log("Filtered Items!");
         console.log(filteredItems().length);
-        console.log
+        //Comparar los arreglos, mostrar los que están ocultar los que no.
+    ko.utils.arrayForEach(this, function(){
+        this.marker = displayMarker(this.latitude, this.longitude); 
+        console.log("m" + this.marker);
+    })
     })
     
 };
 
 
 function loadMap() {
-        map = new google.maps.Map(document.getElementById("map-div"), {
+       /* map = new google.maps.Map(document.getElementById("map-div"), {
         center: new google.maps.LatLng(4.6063134, -74.0753201),
          zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -94,7 +102,7 @@ function loadMap() {
 
     locations.forEach(function(Item){
         Item.marker = displayMarker(Item.latitude, Item.longitude);   
-    });
+    });*/
 
 }
 

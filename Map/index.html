@@ -52,7 +52,7 @@ li:hover {
 <body>
     <div><input type="text" class="search-bar" data-bind="value: filter, valueUpdate: 'afterkeydown'"></input></div>
     <div id="map-div"></div>
-    <script async src="http://maps.googleapis.com/maps/api/js?v=3&amp;callback=loadMap"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?v=3"></script>
     <div id="content">
         <ul data-bind="foreach: filteredItems">
             <li data-bind="text: name, latitude: latitude, longitude:longitude, map:map"></li>
